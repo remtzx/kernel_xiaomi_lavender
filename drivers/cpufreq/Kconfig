@@ -185,7 +185,7 @@ config CPU_FREQ_GOV_INTERACTIVEX
 	tristate "'interactivex' governor"
 	help
 	  To compile this driver as a module, choose M here: the
-	  module will be called cpufreq_interactivex.
+	  module will be called cpufreq_interactivex
 
 	  If in doubt, say Y.
 
