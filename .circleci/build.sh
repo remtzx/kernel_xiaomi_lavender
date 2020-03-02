@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Cloning dependencies"
-git clone --depth=1 -b caf https://github.com/sohamxda7/kernel_sdm660 kernel
+git clone --depth=1 -b old-cam https://github.com/sohamxda7/kernel_sdm660 kernel
 cd kernel
 git clone --depth=1 https://github.com/crDroidMod/android_prebuilts_clang_host_linux-x86_clang-6032204 clang
 git clone --depth=1 https://github.com/KudProject/arm-linux-androideabi-4.9 gcc32

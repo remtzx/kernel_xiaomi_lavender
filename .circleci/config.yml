@@ -13,7 +13,7 @@ jobs:
            git clone https://github.com/akhilnarang/scripts && cd scripts && bash setup/android_build_env.sh && cd ..
            mkdir predator
            cd predator
-           wget https://raw.githubusercontent.com/sohamxda7/kernel_sdm660/caf/.circleci/build.sh
+           wget https://raw.githubusercontent.com/sohamxda7/kernel_sdm660/old-cam/.circleci/build.sh
            source build.sh
 workflows:
   version: 2.1
