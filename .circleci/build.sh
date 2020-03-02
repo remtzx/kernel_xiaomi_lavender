@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Cloning dependencies"
-git clone --depth=1 -b caf https://github.com/susandahal/kernel_sdm660 kernel
+git clone --depth=1 -b caf https://github.com/sohamxda7/kernel_sdm660 kernel
 cd kernel
 git clone --depth=1 https://github.com/crDroidMod/android_prebuilts_clang_host_linux-x86_clang-6032204 clang
 git clone --depth=1 https://github.com/KudProject/arm-linux-androideabi-4.9 gcc32
@@ -14,12 +14,12 @@ BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 PATH="${KERNEL_DIR}/clang/bin:${KERNEL_DIR}/gcc/bin:${KERNEL_DIR}/gcc32/bin:${PATH}"
 export KBUILD_COMPILER_STRING="$(${KERNEL_DIR}/clang/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')"
 export ARCH=arm64
-export KBUILD_BUILD_USER=ghost
+export KBUILD_BUILD_USER=sohamsen
 export KBUILD_BUILD_HOST=circleci
 # sticker plox
 function sticker() {
     curl -s -X POST "https://api.telegram.org/bot$token/sendSticker" \
-        -d sticker="CAACAgIAAxkBAAIgYV429nGzhCzqjDa3Mv-ibzvXtbodAAJrBwACYyviCcTTFLgKqpelGAQ" \
+        -d sticker="CAACAgUAAxkBAAJNIl44MHAX4Kg_6opRvrIM0PNjcLZfAAKwAAN24FYTSoIYNjisXxwYBA" \
         -d chat_id="$chat_id"
 }
 # Send info plox channel
