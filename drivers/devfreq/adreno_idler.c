@@ -41,6 +41,10 @@
 static unsigned long idleworkload = 5000;
 module_param_named(adreno_idler_idleworkload, idleworkload, ulong, 0664);
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of ac01171f678a... Added devfreq support
 /* Number of events to wait before ramping down the frequency.
    The idlewait'th events before current one must be all idle before
    Adreno idler ramps down the frequency.
@@ -49,13 +53,21 @@ module_param_named(adreno_idler_idleworkload, idleworkload, ulong, 0664);
    if this is set to a lower value. */
 static unsigned int idlewait = 15;
 module_param_named(adreno_idler_idlewait, idlewait, uint, 0664);
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of ac01171f678a... Added devfreq support
 
 /* Taken from ondemand */
 static unsigned int downdifferential = 20;
 module_param_named(adreno_idler_downdifferential, downdifferential, uint, 0664);
 
 /* Master switch to activate the whole routine */
+<<<<<<< HEAD
 static bool adreno_idler_active = false;
+=======
+static bool adreno_idler_active = true;
+>>>>>>> parent of ac01171f678a... Added devfreq support
 module_param_named(adreno_idler_active, adreno_idler_active, bool, 0664);
 
 static unsigned int idlecount = 0;
@@ -82,7 +94,13 @@ int adreno_idler(struct devfreq_dev_status stats, struct devfreq *devfreq,
 			return 1;
 		}
 	} else {
+<<<<<<< HEAD
 		idlecount = 0;
+=======
+
+		idlecount = 0;
+
+>>>>>>> parent of ac01171f678a... Added devfreq support
 		/* Do not return 1 here and allow rest of the algorithm to
 		   figure out the appropriate frequency for current workload.
 		   It can even set it back to the lowest frequency. */
