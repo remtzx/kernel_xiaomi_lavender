@@ -11,7 +11,7 @@ KERNEL_DIR=$(pwd)
 IMAGE="${KERNEL_DIR}/out/arch/arm64/boot/Image.gz-dtb"
 TANGGAL=$(date +"%Y%m%d-%H")
 token="MTI5MDc5MjQxNDpBQUY4QWJQVWc4QkpQcG5rVjhLTUV5ZW5FNnlZeW1od0ljZw=="
-chatid="-1001323983226"
+chat_id="-1001323983226"
 BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 PATH="${KERNEL_DIR}/clang/bin:${KERNEL_DIR}/gcc/bin:${KERNEL_DIR}/gcc32/bin:${PATH}"
 export KBUILD_COMPILER_STRING="$(${KERNEL_DIR}/clang/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')"
