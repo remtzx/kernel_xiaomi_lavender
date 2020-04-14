@@ -76,7 +76,7 @@ function compile() {
 # Zipping
 function zipping() {
     cd AnyKernel || exit 1
-    zip -r9 MinaKernel-lavender-${TANGGAL}.zip *
+    zip -r9 미나-Kernel-lavender-${TANGGAL}.zip *
     cd ..
 }
 compile
