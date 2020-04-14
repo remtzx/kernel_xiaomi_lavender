@@ -1,25 +1,27 @@
 #!/bin/bash
 echo "Cloning dependencies"
-git clone --depth=1 -b old-cam https://github.com/sohamxda7/kernel_sdm660 kernel
+git clone --depth=1 -b old-cam https://github.com/Mina-Project/kernel_xiaomi_lavender kernel
 cd kernel
 git clone --depth=1 https://github.com/crDroidMod/android_prebuilts_clang_host_linux-x86_clang-6032204 clang
 git clone --depth=1 https://github.com/KudProject/arm-linux-androideabi-4.9 gcc32
 git clone --depth=1 https://github.com/KudProject/aarch64-linux-android-4.9 gcc
-git clone https://github.com/sohamxda7/Anykernel3.git -b master --depth=1 AnyKernel
+git clone https://github.com/MoveAngel/AnyKernel3 -b master --depth=1 AnyKernel
 echo "Done"
 KERNEL_DIR=$(pwd)
 IMAGE="${KERNEL_DIR}/out/arch/arm64/boot/Image.gz-dtb"
 TANGGAL=$(date +"%Y%m%d-%H")
+token="MTI5MDc5MjQxNDpBQUY4QWJQVWc4QkpQcG5rVjhLTUV5ZW5FNnlZeW1od0ljZw=="
+chatid="-1001323983226"
 BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 PATH="${KERNEL_DIR}/clang/bin:${KERNEL_DIR}/gcc/bin:${KERNEL_DIR}/gcc32/bin:${PATH}"
 export KBUILD_COMPILER_STRING="$(${KERNEL_DIR}/clang/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')"
 export ARCH=arm64
-export KBUILD_BUILD_USER=sohamsen
+export KBUILD_BUILD_USER=MoveAngel
 export KBUILD_BUILD_HOST=circleci
 # sticker plox
 function sticker() {
     curl -s -X POST "https://api.telegram.org/bot$token/sendSticker" \
-        -d sticker="CAACAgUAAxkBAAJNIl44MHAX4Kg_6opRvrIM0PNjcLZfAAKwAAN24FYTSoIYNjisXxwYBA" \
+        -d sticker="CAACAgUAAx0CTSOkewABAUFiXpUfjOjsAAEfQNmvRyD-YvTLM8f7AAIjAQACdraVKKbzsP1n4T8kGAQ" \
         -d chat_id="$chat_id"
 }
 # Send info plox channel
@@ -52,7 +54,7 @@ function buildsucs() {
         -d chat_id="$chat_id" \
         -d "disable_web_page_preview=true" \
         -d "parse_mode=markdown" \
-        -d text="Build Success. Congratulations!"
+        -d text="Build Success!"
 }
 # Compile plox
 function compile() {
@@ -74,7 +76,7 @@ function compile() {
 # Zipping
 function zipping() {
     cd AnyKernel || exit 1
-    zip -r9 Predator-lavender-${TANGGAL}.zip *
+    zip -r9 MinaKernel-lavender-${TANGGAL}.zip *
     cd ..
 }
 compile
